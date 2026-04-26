@@ -3,8 +3,6 @@ import { motion, useInView } from 'motion/react';
 import { TrendingUp, ArrowRight, CheckCircle2, Star, BarChart2, Globe, DollarSign, PieChart, ShieldCheck, Zap, Play, AlertTriangle, Target, Brain, TrendingDown, Clock } from 'lucide-react';
 
 const CHECKOUT_URL = 'https://SEU-LINK-DA-TICTO.com.br';
-
-// ⚠️ Faça upload da logo em imgbb.com e cole a URL direta aqui:
 const LOGO_URL = 'https://i.ibb.co/N2zxFMG5/Invista-capitalclub-removebg-preview.png';
 
 const fw = (delay = 0) => ({
@@ -22,24 +20,24 @@ function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
   return (
-    <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: 100, background: bg ? 'rgba(8,12,8,0.95)' : 'transparent', backdropFilter: bg ? 'blur(16px)' : 'none', borderBottom: bg ? '1px solid rgba(255,255,255,0.06)' : 'none', transition: 'all 0.3s' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px', maxWidth: 1152, margin: '0 auto', height: '100%' }}>
+    <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: 80, background: bg ? 'rgba(8,12,8,0.95)' : 'transparent', backdropFilter: bg ? 'blur(16px)' : 'none', borderBottom: bg ? '1px solid rgba(255,255,255,0.06)' : 'none', transition: 'all 0.3s' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', maxWidth: 1152, margin: '0 auto', height: '100%' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src={LOGO_URL} alt="Invista+ Capital Club" style={{ height: 110, objectFit: 'contain', marginTop: 8 }}
+          <img src={LOGO_URL} alt="Invista+ Capital Club" style={{ height: 90, objectFit: 'contain', marginTop: 8 }}
             onError={(e: any) => { e.currentTarget.style.display='none'; (e.currentTarget.nextSibling as HTMLElement).style.display='flex'; }} />
           <div style={{ display: 'none', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 32, height: 32, background: '#00ff7f', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <TrendingUp size={16} color="#000" strokeWidth={3} />
             </div>
-            <span style={{ fontWeight: 900, fontSize: 16, color: '#fff' }}>Invista<span style={{ color: '#00ff7f' }}>+</span><span style={{ color: 'rgba(255,255,255,0.2)', fontWeight: 500, fontSize: 11, marginLeft: 4 }}>Capital Club</span></span>
+            <span style={{ fontWeight: 900, fontSize: 16, color: '#fff' }}>Invista<span style={{ color: '#00ff7f' }}>+</span></span>
           </div>
         </a>
-        <nav style={{ display: 'flex', gap: 28 }}>
+        <nav className="nav-links" style={{ display: 'flex', gap: 28 }}>
           {[['#conteudo','Conteúdo'],['#como-funciona','Como funciona'],['#precos','Planos']].map(([h,l],i) => (
             <a key={`nav-${i}`} href={h} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, fontFamily: 'DM Sans', fontWeight: 500, textDecoration: 'none' }}>{l}</a>
           ))}
         </nav>
-        <a href={CHECKOUT_URL} style={{ background: '#00ff7f', color: '#000', fontSize: 12, fontWeight: 900, padding: '10px 20px', borderRadius: 8, textDecoration: 'none', letterSpacing: '0.05em' }}>COMEÇAR AGORA</a>
+        <a href={CHECKOUT_URL} style={{ background: '#00ff7f', color: '#000', fontSize: 12, fontWeight: 900, padding: '10px 16px', borderRadius: 8, textDecoration: 'none', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>COMEÇAR AGORA</a>
       </div>
     </header>
   );
@@ -47,28 +45,28 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '120px 32px 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '100px 20px 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
       <div style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translate(-50%,-50%)', width: 700, height: 500, background: 'rgba(0,255,127,0.06)', borderRadius: '50%', filter: 'blur(120px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', inset: 0, opacity: 0.025, backgroundImage: 'linear-gradient(rgba(0,255,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,127,1) 1px,transparent 1px)', backgroundSize: '60px 60px', pointerEvents: 'none' }} />
-      <div style={{ maxWidth: 800, position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 800, position: 'relative', zIndex: 1, width: '100%' }}>
         <motion.div {...fw(0)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1px solid rgba(0,255,127,0.25)', background: 'rgba(0,255,127,0.06)', padding: '7px 16px', borderRadius: 99, fontSize: 11, fontWeight: 700, color: '#00ff7f', marginBottom: 28, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span className="blk" style={{ width: 6, height: 6, borderRadius: '50%', background: '#00ff7f' }} />+1.200 investidores já estão no Club
+          <span className="blk" style={{ width: 6, height: 6, borderRadius: '50%', background: '#00ff7f', flexShrink: 0 }} />+1.200 investidores já estão no Club
         </motion.div>
-        <motion.h1 {...fw(0.07)} style={{ fontSize: 40, fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 20 }}>
+        <motion.h1 {...fw(0.07)} style={{ fontSize: 'clamp(28px,6vw,40px)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 20 }}>
           Pare de perder <em style={{ color: '#00ff7f', fontStyle: 'italic' }}>dinheiro</em><br />investindo no escuro.
         </motion.h1>
-        <motion.p {...fw(0.12)} style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', maxWidth: 520, margin: '0 auto 32px', lineHeight: 1.7, fontFamily: 'DM Sans' }}>
+        <motion.p {...fw(0.12)} style={{ fontSize: 'clamp(14px,3vw,16px)', color: 'rgba(255,255,255,0.45)', maxWidth: 520, margin: '0 auto 32px', lineHeight: 1.7, fontFamily: 'DM Sans' }}>
           Descubra exatamente onde alocar seu dinheiro e construa patrimônio com segurança, método e resultado comprovado.
         </motion.p>
         <motion.div {...fw(0.17)} style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
-          <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 14, padding: '14px 28px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.05em', boxShadow: '0 0 30px rgba(0,255,127,0.25)' }}>
+          <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 14, padding: '14px 24px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.05em', boxShadow: '0 0 30px rgba(0,255,127,0.25)', width: '100%', maxWidth: 360 }}>
             QUERO ENTRAR PARA O CLUB <ArrowRight size={16} strokeWidth={3} />
           </a>
-          <a href="#conteudo" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.45)', fontWeight: 600, fontSize: 14, padding: '14px 24px', borderRadius: 12, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'DM Sans' }}>
+          <a href="#conteudo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, color: 'rgba(255,255,255,0.45)', fontWeight: 600, fontSize: 14, padding: '14px 24px', borderRadius: 12, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'DM Sans', width: '100%', maxWidth: 360 }}>
             <Play size={14} /> Ver o que está incluso
           </a>
         </motion.div>
-        <motion.div {...fw(0.2)} style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
+        <motion.div {...fw(0.2)} style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
           {([['Garantia de 7 dias', ShieldCheck],['Acesso imediato', Zap],['Cancele quando quiser', CheckCircle2]] as const).map(([text, Icon], i) => (
             <span key={`seal-${i}`} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.25)', fontFamily: 'DM Sans' }}>
               <Icon size={13} color="rgba(0,255,127,0.5)" /> {text}
@@ -81,9 +79,9 @@ function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          style={{ width: '100%', maxWidth: 860, margin: '0 auto', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', background: '#0d120d', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,255,127,0.04)' }}
+          className="mockup-hide"
+          style={{ width: '100%', maxWidth: 860, margin: '0 auto', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', background: '#0d120d', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.6)' }}
         >
-          {/* Browser bar */}
           <div style={{ height: 36, background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', padding: '0 16px', gap: 6 }}>
             <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,80,80,0.5)' }} />
             <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,200,0,0.5)' }} />
@@ -92,7 +90,6 @@ function Hero() {
               <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)', fontFamily: 'DM Sans' }}>app.invistacapital.com.br/dashboard</span>
             </div>
           </div>
-          {/* Dashboard content */}
           <div style={{ padding: 20, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
             {[
               { l: 'Rentabilidade', v: '+24.8%', c: '#00ff7f', s: 'últimos 12 meses' },
@@ -106,7 +103,6 @@ function Hero() {
                 <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.2)', marginTop: 4, display: 'block', fontFamily: 'DM Sans' }}>{k.s}</span>
               </div>
             ))}
-            {/* Gráfico */}
             <div style={{ gridColumn: 'span 3', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 10, padding: 16 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
                 <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'DM Sans' }}>Performance</span>
@@ -128,7 +124,6 @@ function Hero() {
                 ))}
               </div>
             </div>
-            {/* Top picks */}
             <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 10, padding: 14 }}>
               <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: 10, fontFamily: 'DM Sans' }}>Top picks</span>
               {[['PETR4','+18%'],['HGLG11','+12%'],['BTC','+31%']].map(([t,v], i) => (
@@ -168,11 +163,11 @@ function PainPoints() {
     [TrendingDown,'Está perdendo para a inflação sem perceber'],
   ];
   return (
-    <section style={{ padding: '60px 32px' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+    <section style={{ padding: '60px 20px' }}>
+      <div className="grid-2col" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
         <div>
           <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 16 }}>Você se identifica?</motion.span>
-          <motion.h2 {...fw(0.06)} style={{ fontSize: 28, fontWeight: 900, lineHeight: 1.1, marginBottom: 16, letterSpacing: '-0.02em' }}>
+          <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(22px,4vw,28px)', fontWeight: 900, lineHeight: 1.1, marginBottom: 16, letterSpacing: '-0.02em' }}>
             Se você está assim,<br /><span style={{ color: 'rgba(255,255,255,0.2)' }}>você não está sozinho.</span>
           </motion.h2>
           <motion.p {...fw(0.1)} style={{ fontSize: 15, color: 'rgba(255,255,255,0.38)', lineHeight: 1.7, marginBottom: 24, fontFamily: 'DM Sans' }}>
@@ -205,14 +200,14 @@ function HowItWorks() {
     ['04','Acompanhe e evolua','Relatórios semanais, análises e suporte da comunidade para te manter no rumo.'],
   ];
   return (
-    <section id="como-funciona" style={{ padding: '60px 32px', background: 'rgba(255,255,255,0.015)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <section id="como-funciona" style={{ padding: '60px 20px', background: 'rgba(255,255,255,0.015)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 12 }}>Como funciona</motion.span>
-          <motion.h2 {...fw(0.06)} style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em' }}>Simples do início ao fim.</motion.h2>
+          <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(22px,4vw,28px)', fontWeight: 900, letterSpacing: '-0.02em' }}>Simples do início ao fim.</motion.h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, position: 'relative' }}>
-          <div style={{ position: 'absolute', top: 26, left: '12%', right: '12%', height: 1, background: 'linear-gradient(90deg,transparent,rgba(0,255,127,0.2),transparent)' }} />
+        <div className="grid-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, position: 'relative' }}>
+          <div className="connector-line" style={{ position: 'absolute', top: 26, left: '12%', right: '12%', height: 1, background: 'linear-gradient(90deg,transparent,rgba(0,255,127,0.2),transparent)' }} />
           {steps.map(([n,title,desc], i) => (
             <motion.div key={`step-${i}`} {...fw(0.07 * i)} style={{ textAlign: 'center' }}>
               <div style={{ width: 52, height: 52, borderRadius: 14, border: '1px solid rgba(0,255,127,0.3)', background: 'rgba(0,255,127,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px' }}>
@@ -230,20 +225,20 @@ function HowItWorks() {
 
 const MODS = [
   { img: 'https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?w=600&q=80', Icon: BarChart2,   title: 'Fundamentos da Renda Fixa',   desc: 'Aprenda a investir com segurança nos melhores ativos de renda fixa.' },
-  { img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80', Icon: TrendingDown, title: 'Dominando Ações e FIIs',        desc: 'Estratégias para investir em ações e fundos imobiliários com confiança.' },
+  { img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80', Icon: TrendingDown, title: 'Dominando Ações e FIIs',        desc: 'Estratégias para investir em ações e FIIs com confiança.' },
   { img: 'https://images.unsplash.com/photo-1640340434855-6084b1f4901c?w=600&q=80', Icon: PieChart,     title: 'Ciclos de Mercado e Macro',    desc: 'Entenda os ciclos econômicos e fatores que movem os mercados.' },
-  { img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80', Icon: Globe,        title: 'Investimentos no Exterior',    desc: 'Diversifique no exterior e proteja seu patrimônio globalmente.' },
-  { img: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&q=80', Icon: DollarSign,   title: 'Poder dos Dividendos',         desc: 'Construa renda passiva com ações pagadoras de dividendos.' },
+  { img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80', Icon: Globe,        title: 'Investimentos no Exterior',    desc: 'Diversifique no exterior e proteja seu patrimônio.' },
+  { img: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&q=80',   Icon: DollarSign,   title: 'Poder dos Dividendos',         desc: 'Construa renda passiva com ações pagadoras de dividendos.' },
 ];
 
 function ContentGrid() {
   return (
-    <section id="conteudo" style={{ padding: '60px 32px' }}>
+    <section id="conteudo" style={{ padding: '60px 20px' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40, flexWrap: 'wrap', gap: 16 }}>
           <div>
             <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 10 }}>Conteúdo exclusivo</motion.span>
-            <motion.h2 {...fw(0.06)} style={{ fontSize: 30, fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
+            <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(22px,4vw,30px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
               O que tem no <em style={{ color: '#00ff7f' }}>club</em>
             </motion.h2>
             <motion.p {...fw(0.1)} style={{ fontSize: 14, color: 'rgba(255,255,255,0.38)', marginTop: 10, maxWidth: 400, lineHeight: 1.6, fontFamily: 'DM Sans' }}>
@@ -256,16 +251,16 @@ function ContentGrid() {
             </span>
           </motion.div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 14, marginBottom: 36 }}>
+        <div className="grid-mods" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 14, marginBottom: 36 }}>
           {MODS.map(({ img, Icon, title, desc }, i) => (
             <motion.div key={`mod-${i}`} {...fw(0.05 * i)}
               style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)', background: '#0d120d', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s' }}
-              whileHover={{ y: -6, borderColor: 'rgba(0,255,127,0.3)', boxShadow: '0 16px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(0,255,127,0.1)' }}>
+              whileHover={{ y: -6, borderColor: 'rgba(0,255,127,0.3)', boxShadow: '0 16px 40px rgba(0,0,0,0.4)' }}>
               <div style={{ position: 'relative', height: 150, overflow: 'hidden' }}>
                 <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
                   onError={(e: any) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80'; }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top,#0d120d,transparent)' }} />
-                <div style={{ position: 'absolute', bottom: 12, left: 12, width: 36, height: 36, background: '#00ff7f', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(0,255,127,0.4)' }}>
+                <div style={{ position: 'absolute', bottom: 12, left: 12, width: 36, height: 36, background: '#00ff7f', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Icon size={17} color="#000" strokeWidth={2.5} />
                 </div>
               </div>
@@ -277,7 +272,7 @@ function ContentGrid() {
           ))}
         </div>
         <motion.div {...fw(0.25)} style={{ display: 'flex', justifyContent: 'center' }}>
-          <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 13, padding: '14px 32px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.06em', boxShadow: '0 0 28px rgba(0,255,127,0.2)' }}>
+          <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 13, padding: '14px 28px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.06em', boxShadow: '0 0 28px rgba(0,255,127,0.2)', width: '100%', maxWidth: 500 }}>
             QUERO ENTRAR PARA O INVISTA+ CAPITAL CLUB <ArrowRight size={16} strokeWidth={3} />
           </a>
         </motion.div>
@@ -312,11 +307,11 @@ function Stats() {
     { to: 7,    suffix: ' dias', label: 'de garantia total\nsem perguntas' },
   ];
   return (
-    <section style={{ padding: '48px 32px', background: 'rgba(0,255,127,0.025)', borderTop: '1px solid rgba(0,255,127,0.08)', borderBottom: '1px solid rgba(0,255,127,0.08)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 32 }}>
+    <section style={{ padding: '48px 20px', background: 'rgba(0,255,127,0.025)', borderTop: '1px solid rgba(0,255,127,0.08)', borderBottom: '1px solid rgba(0,255,127,0.08)' }}>
+      <div className="grid-stats" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 32 }}>
         {items.map(({ to, suffix, label }, i) => (
           <motion.div key={`stat-${i}`} {...fw(0.06 * i)} style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 28, fontWeight: 900, color: '#00ff7f', lineHeight: 1, marginBottom: 8 }}>
+            <div style={{ fontSize: 'clamp(24px,4vw,32px)', fontWeight: 900, color: '#00ff7f', lineHeight: 1, marginBottom: 8 }}>
               <Counter to={to} suffix={suffix} />
             </div>
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.32)', lineHeight: 1.6, whiteSpace: 'pre-line', fontFamily: 'DM Sans' }}>{label}</p>
@@ -334,15 +329,15 @@ function Testimonials() {
     { photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80', name: 'João Pedro',    role: 'Engenheiro', text: 'O melhor investimento do último ano foi o acesso ao Club. Resultado real, sem enrolação.' },
   ];
   return (
-    <section style={{ padding: '60px 32px' }}>
+    <section style={{ padding: '60px 20px' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 12 }}>Prova real</motion.span>
-          <motion.h2 {...fw(0.06)} style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em' }}>Quem está dentro fala por si.</motion.h2>
+          <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(22px,4vw,28px)', fontWeight: 900, letterSpacing: '-0.02em' }}>Quem está dentro fala por si.</motion.h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
+        <div className="grid-testi" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
           {list.map((t, i) => (
-            <motion.div key={`test-${i}`} {...fw(0.07 * i)} style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)', background: '#0d120d', padding: 28, display: 'flex', flexDirection: 'column' }}>
+            <motion.div key={`test-${i}`} {...fw(0.07 * i)} style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)', background: '#0d120d', padding: 24, display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', gap: 4, marginBottom: 18 }}>
                 {[0,1,2,3,4].map(j => <Star key={`star-${i}-${j}`} size={13} fill="#00ff7f" color="#00ff7f" />)}
               </div>
@@ -365,13 +360,13 @@ function Testimonials() {
 function Pricing() {
   const benefits = ['Todos os módulos de investimento','Carteiras recomendadas atualizadas','Análises semanais de mercado','Comunidade exclusiva de membros','Planilha de controle financeiro','Suporte com especialistas','Acesso pelo app mobile','Novos conteúdos toda semana'];
   return (
-    <section id="precos" style={{ padding: '60px 32px', background: 'rgba(255,255,255,0.015)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: 460, margin: '0 auto' }}>
+    <section id="precos" style={{ padding: '60px 20px', background: 'rgba(255,255,255,0.015)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ maxWidth: 460, margin: '0 auto', width: '100%' }}>
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
           <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 12 }}>Planos</motion.span>
-          <motion.h2 {...fw(0.06)} style={{ fontSize: 26, fontWeight: 900, letterSpacing: '-0.02em' }}>Simples. Sem surpresas.</motion.h2>
+          <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, letterSpacing: '-0.02em' }}>Simples. Sem surpresas.</motion.h2>
         </div>
-        <motion.div {...fw(0.1)} style={{ position: 'relative', borderRadius: 24, border: '1px solid rgba(0,255,127,0.2)', background: '#0d120d', padding: '36px 32px', boxShadow: '0 0 60px rgba(0,255,127,0.06)' }}>
+        <motion.div {...fw(0.1)} style={{ position: 'relative', borderRadius: 24, border: '1px solid rgba(0,255,127,0.2)', background: '#0d120d', padding: '36px 24px', boxShadow: '0 0 60px rgba(0,255,127,0.06)' }}>
           <div style={{ position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)', background: '#00ff7f', color: '#000', fontSize: 11, fontWeight: 900, padding: '5px 20px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>OFERTA EXCLUSIVA</div>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', marginBottom: 12, fontFamily: 'DM Sans' }}>Invista+ Capital Club — Mensal</p>
@@ -407,17 +402,17 @@ function Pricing() {
 
 function FinalCTA() {
   return (
-    <section style={{ padding: '60px 32px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: '60px 20px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 350, background: 'rgba(0,255,127,0.05)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: 700, margin: '0 auto', position: 'relative' }}>
         <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 20 }}>Última chamada</motion.span>
-        <motion.h2 {...fw(0.06)} style={{ fontSize: 32, fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: 16 }}>
+        <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(24px,5vw,32px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: 16 }}>
           Você pode continuar perdido...<br /><span style={{ color: 'rgba(255,255,255,0.18)' }}>ou começar hoje.</span>
         </motion.h2>
-        <motion.p {...fw(0.1)} style={{ fontSize: 16, color: 'rgba(255,255,255,0.38)', marginBottom: 32, lineHeight: 1.6, fontFamily: 'DM Sans' }}>
+        <motion.p {...fw(0.1)} style={{ fontSize: 15, color: 'rgba(255,255,255,0.38)', marginBottom: 32, lineHeight: 1.6, fontFamily: 'DM Sans' }}>
           Cada dia sem método é um passo mais longe da sua liberdade financeira.
         </motion.p>
-        <motion.a {...fw(0.14)} href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 14, padding: '16px 36px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.06em', boxShadow: '0 0 40px rgba(0,255,127,0.25)' }}>
+        <motion.a {...fw(0.14)} href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 900, fontSize: 13, padding: '16px 28px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 40px rgba(0,255,127,0.25)', width: '100%', maxWidth: 500 }}>
           QUERO ENTRAR PARA O INVISTA+ CAPITAL CLUB <ArrowRight size={17} strokeWidth={3} />
         </motion.a>
         <motion.p {...fw(0.18)} style={{ marginTop: 16, fontSize: 11, color: 'rgba(255,255,255,0.18)', fontFamily: 'DM Sans' }}>
@@ -430,7 +425,7 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '40px 24px', background: '#060906' }}>
+    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '40px 20px', background: '#060906' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
           <a href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
@@ -440,10 +435,10 @@ function Footer() {
               <div style={{ width: 28, height: 28, background: '#00ff7f', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <TrendingUp size={13} color="#000" strokeWidth={3} />
               </div>
-              <span style={{ fontWeight: 900, fontSize: 14, color: '#fff' }}>Invista<span style={{ color: '#00ff7f' }}>+</span> <span style={{ color: 'rgba(255,255,255,0.18)', fontWeight: 500, fontSize: 11 }}>Capital Club</span></span>
+              <span style={{ fontWeight: 900, fontSize: 14, color: '#fff' }}>Invista<span style={{ color: '#00ff7f' }}>+</span></span>
             </div>
           </a>
-          <div style={{ display: 'flex', gap: 24 }}>
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             {[['#conteudo','Conteúdo'],['#como-funciona','Como funciona'],['#precos','Planos']].map(([h,l],i) => (
               <a key={`fl-${i}`} href={h} style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', fontFamily: 'DM Sans', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>{l}</a>
             ))}
@@ -462,7 +457,7 @@ function Footer() {
 
 export default function App() {
   return (
-    <div style={{ fontFamily: 'Syne, sans-serif', background: '#080c08', color: '#fff', overflowX: 'hidden', minHeight: '100vh', minWidth: 960 }}>
+    <div style={{ fontFamily: 'Syne, sans-serif', background: '#080c08', color: '#fff', overflowX: 'hidden', minHeight: '100vh' }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -474,6 +469,23 @@ export default function App() {
         @keyframes blk { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
         .run { animation: mq 24s linear infinite; }
         .blk { animation: blk 2s ease-in-out infinite; }
+
+        @media (max-width: 768px) {
+          .nav-links { display: none !important; }
+          .grid-2col { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .grid-4col { grid-template-columns: repeat(2,1fr) !important; }
+          .connector-line { display: none !important; }
+          .grid-mods { grid-template-columns: repeat(2,1fr) !important; }
+          .grid-stats { grid-template-columns: repeat(2,1fr) !important; gap: 24px !important; }
+          .grid-testi { grid-template-columns: 1fr !important; }
+          .mockup-hide { display: none !important; }
+        }
+
+        @media (max-width: 480px) {
+          .grid-4col { grid-template-columns: 1fr !important; }
+          .grid-mods { grid-template-columns: 1fr !important; }
+          .grid-stats { grid-template-columns: repeat(2,1fr) !important; }
+        }
       `}</style>
       <Navbar />
       <Hero />
