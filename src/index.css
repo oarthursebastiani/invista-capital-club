@@ -22,3 +22,19 @@
 .run { animation: mq 24s linear infinite; }
 .flt { animation: flt 5s ease-in-out infinite; }
 .blk { animation: blk 2s ease-in-out infinite; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}
