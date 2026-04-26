@@ -1,18 +1,13 @@
-```tsx
-// ⚠️ ARQUIVO COMPLETO OTIMIZADO PARA MOBILE E DESKTOP
-
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'motion/react';
-import { TrendingUp, ArrowRight, CheckCircle2, Star, BarChart2, Globe, DollarSign, PieChart, ShieldCheck, Zap, Play, AlertTriangle, Target, Brain, TrendingDown, Clock } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const CHECKOUT_URL = 'https://SEU-LINK-DA-TICTO.com.br';
 const LOGO_URL = 'https://i.ibb.co/N2zxFMG5/Invista-capitalclub-removebg-preview.png';
 
-const fw = (delay = 0) => ({
+const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-40px' },
-  transition: { duration: 0.5, delay },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay }
 });
 
 // ================= NAVBAR =================
@@ -32,7 +27,7 @@ function Navbar() {
       left: 0,
       right: 0,
       zIndex: 50,
-      height: 90,
+      height: 80,
       background: bg ? 'rgba(8,12,8,0.95)' : 'transparent',
       backdropFilter: bg ? 'blur(12px)' : 'none',
       transition: 'all 0.3s'
@@ -46,17 +41,22 @@ function Navbar() {
         margin: '0 auto',
         height: '100%'
       }}>
-        <img src={LOGO_URL} style={{ height: 70 }} />
+        <img
+          src={LOGO_URL}
+          alt="Invista+ Capital Club"
+          style={{ height: 60 }}
+        />
 
         <a href={CHECKOUT_URL} style={{
           background: '#00ff7f',
           color: '#000',
           fontWeight: 900,
-          padding: '10px 16px',
+          padding: '12px 18px',
           borderRadius: 8,
-          fontSize: 12
+          fontSize: 12,
+          textDecoration: 'none'
         }}>
-          COMEÇAR
+          ENTRAR NO CLUB
         </a>
       </div>
     </header>
@@ -75,24 +75,25 @@ function Hero() {
       padding: '120px 20px 60px',
       textAlign: 'center'
     }}>
-      <h1 style={{
-        fontSize: 'clamp(28px, 7vw, 42px)',
+      <motion.h1 {...fadeUp(0)} style={{
+        fontSize: 'clamp(28px, 7vw, 44px)',
         fontWeight: 900,
-        marginBottom: 20
+        marginBottom: 20,
+        lineHeight: 1.1
       }}>
-        Pare de perder dinheiro investindo no escuro
-      </h1>
+        Pare de perder dinheiro<br />investindo no escuro
+      </motion.h1>
 
-      <p style={{
+      <motion.p {...fadeUp(0.1)} style={{
         fontSize: 'clamp(14px, 4vw, 16px)',
         maxWidth: 520,
         marginBottom: 30,
         color: 'rgba(255,255,255,0.6)'
       }}>
-        Invista com clareza, estratégia e consistência
-      </p>
+        Descubra exatamente onde investir e construa patrimônio com segurança e estratégia.
+      </motion.p>
 
-      <div style={{
+      <motion.div {...fadeUp(0.2)} style={{
         display: 'flex',
         gap: 12,
         flexWrap: 'wrap',
@@ -106,16 +107,19 @@ function Hero() {
           padding: 16,
           borderRadius: 10,
           fontWeight: 900,
-          textAlign: 'center'
+          textAlign: 'center',
+          color: '#000',
+          textDecoration: 'none',
+          boxShadow: '0 0 30px rgba(0,255,127,0.2)'
         }}>
-          COMEÇAR AGORA
+          QUERO ACESSO AO MÉTODO
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
-// ================= GRID RESPONSIVO =================
+// ================= GRID =================
 function GridSection() {
   return (
     <section style={{ padding: '60px 20px' }}>
@@ -129,7 +133,8 @@ function GridSection() {
         {[1,2,3,4,5,6].map(i => (
           <div key={i} style={{
             height: 120,
-            background: '#111',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: 10
           }} />
         ))}
@@ -149,10 +154,15 @@ function Stats() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
         gap: 20
       }}>
-        {[1,2,3,4].map(i => (
+        {[
+          ['+1.200', 'membros'],
+          ['+24%', 'rentabilidade'],
+          ['7 dias', 'garantia'],
+          ['100%', 'online']
+        ].map(([value, label], i) => (
           <div key={i} style={{ textAlign: 'center' }}>
-            <h2 style={{ color: '#00ff7f' }}>+100%</h2>
-            <p style={{ fontSize: 12 }}>resultado médio</p>
+            <h2 style={{ color: '#00ff7f', fontSize: 26 }}>{value}</h2>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{label}</p>
           </div>
         ))}
       </div>
@@ -174,7 +184,7 @@ function Footer() {
         flexDirection: 'column',
         gap: 20
       }}>
-        <span style={{ fontSize: 12 }}>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
           © 2026 Invista+ Capital Club
         </span>
       </div>
@@ -191,14 +201,11 @@ export default function App() {
       minHeight: '100vh',
       overflowX: 'hidden'
     }}>
-    
       <Navbar />
       <Hero />
       <GridSection />
       <Stats />
       <Footer />
-
     </div>
   );
 }
-```
