@@ -191,15 +191,7 @@ export default function App() {
       minHeight: '100vh',
       overflowX: 'hidden'
     }}>
-
-      <style>{`
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        @media (max-width: 768px) {
-          body { overflow-x: hidden; }
-        }
-      `}</style>
-
+    
       <Navbar />
       <Hero />
       <GridSection />
