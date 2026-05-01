@@ -143,10 +143,19 @@ function Hero() {
 
 /* ─── TICKER ─────────────────────────────── */
 function Ticker() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Evita duplicar script
+    if (containerRef.current.childElementCount > 0) return;
+
     const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
     script.async = true;
+
     script.innerHTML = JSON.stringify({
       symbols: [
         { proName: "FX_IDC:USDBRL", title: "Dólar" },
@@ -167,30 +176,36 @@ function Ticker() {
       locale: "br"
     });
 
-    const container = document.getElementById("tradingview-ticker");
-    if (container) {
-      container.innerHTML = "";
-      container.appendChild(script);
-    }
+    containerRef.current.appendChild(script);
   }, []);
 
   return (
     <div
       style={{
         position: "fixed",
-        top: 80, // logo abaixo da navbar
+        top: 80,
         left: 0,
         width: "100%",
         zIndex: 40,
+        height: 46, // 👈 evita layout jumping
+        display: "flex",
+        alignItems: "center",
         borderBottom: "1px solid rgba(255,255,255,0.05)",
-        background: "#080c08"
+        background:
+          "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
+        backdropFilter: "blur(8px)"
       }}
     >
-      <div id="tradingview-ticker" />
+      <div
+        ref={containerRef}
+        style={{
+          width: "100%",
+          height: "100%"
+        }}
+      />
     </div>
   );
 }
-
 /* ─── PAIN POINTS ────────────────────────── */
 function PainPoints() {
   const pains: [any, string][] = [
