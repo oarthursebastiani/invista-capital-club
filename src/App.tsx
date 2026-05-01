@@ -148,32 +148,32 @@ function Ticker() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // evita duplicar o widget
+    // Evita duplicar script
     if (containerRef.current.childElementCount > 0) return;
 
     const script = document.createElement("script");
     script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-ticker.js";
+      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
     script.async = true;
 
     script.innerHTML = JSON.stringify({
       symbols: [
-        { proName: "BMFBOVESPA:IFIX", title: "IFIX" },
         { proName: "FX_IDC:USDBRL", title: "Dólar" },
-        { proName: "BMFBOVESPA:IBOV", title: "Ibovespa" },
+        { proName: "BINANCE:BTCUSDT", title: "Bitcoin" },
+        { proName: "BMFBOVESPA:IFIX", title: "IFIX" },
         { proName: "BMFBOVESPA:MGLU3", title: "MGLU3" },
-        { proName: "BMFBOVESPA:ABEV3", title: "ABEV3" },
         { proName: "BMFBOVESPA:PETR4", title: "PETR4" },
         { proName: "BMFBOVESPA:VALE3", title: "VALE3" },
         { proName: "BMFBOVESPA:ITUB4", title: "ITUB4" },
-        { proName: "BMFBOVESPA:GGBR4", title: "GGBR4" },
-        { proName: "BINANCE:BTCUSDT", title: "Bitcoin" }
+        { proName: "BMFBOVESPA:ABEV3", title: "ABEV3" },
+        { proName: "BMFBOVESPA:IBOV", title: "IBOVESPA" },
+        { proName: "BMFBOVESPA:GGBR4", title: "GGBR4" }
       ],
-      colorTheme: "dark",
-      isTransparent: true,
       showSymbolLogo: true,
-      locale: "br",
-      displayMode: "adaptive"
+      isTransparent: true,
+      displayMode: "adaptive",
+      colorTheme: "dark",
+      locale: "br"
     });
 
     containerRef.current.appendChild(script);
@@ -187,21 +187,20 @@ function Ticker() {
         left: 0,
         width: "100%",
         zIndex: 40,
-        height: 46,
+        height: 46, // 👈 evita layout jumping
         display: "flex",
         alignItems: "center",
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
         background:
           "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
-        backdropFilter: "blur(8px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        backdropFilter: "blur(8px)"
       }}
     >
       <div
         ref={containerRef}
         style={{
           width: "100%",
-          height: "100%",
+          height: "100%"
         }}
       />
     </div>
