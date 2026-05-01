@@ -144,11 +144,42 @@ function Hero() {
 /* ─── TICKER ─────────────────────────────── */
 function Ticker() {
   const items = ['B3','·','Tesouro Direto','·','FIIs','·','ETFs','·','Criptoativos','·','Renda Fixa','·','Dividendos','·','Ações','·'];
+
+  const loopItems = [...items, ...items]; // duplicação correta
+
   return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '13px 0', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
-      <div className="run" style={{ display: 'flex', gap: 36, whiteSpace: 'nowrap' }}>
-        {[...items,...items,...items].map((it,i) => (
-          <span key={i} style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.15)', textTransform: 'uppercase', letterSpacing: '0.18em', flexShrink: 0 }}>{it}</span>
+    <div
+      style={{
+        borderTop: '1px solid rgba(255,255,255,0.05)',
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        padding: '13px 0',
+        overflow: 'hidden',
+        background: 'rgba(255,255,255,0.01)',
+      }}
+    >
+      <div
+        className="run"
+        style={{
+          display: 'flex',
+          gap: 36,
+          whiteSpace: 'nowrap',
+          minWidth: '200%', // ESSENCIAL pro loop infinito suave
+        }}
+      >
+        {loopItems.map((it, i) => (
+          <span
+            key={i}
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.15)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.18em',
+              flexShrink: 0,
+            }}
+          >
+            {it}
+          </span>
         ))}
       </div>
     </div>
