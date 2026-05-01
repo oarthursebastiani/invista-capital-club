@@ -52,17 +52,21 @@ function Navbar() {
 function Hero() {
   return (
     <section
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '180px 24px 60px', // 🔥 espaço maior por causa do ticker
-        position: 'relative',
-        overflow: 'hidden',
-        textAlign: 'center'
-      }}
+  style={{
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    // 🔥 AQUI ESTÁ A CORREÇÃO
+    padding: '190px 24px 60px',
+
+    position: 'relative',
+    overflow: 'hidden',
+    textAlign: 'center'
+  }}
+>
     >
       {/* glow fundo */}
       <div
