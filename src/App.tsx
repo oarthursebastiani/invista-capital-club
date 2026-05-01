@@ -508,9 +508,14 @@ export default function App() {
         body { overflow-x: hidden; background: #080c08; }
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-thumb { background: #00ff7f44; border-radius: 4px; }
-        @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+       @keyframes mq {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+       
         @keyframes blk { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
-        .run { animation: mq 24s linear infinite; }
+        
+        .run {animation: mq 18s linear infinite; }
         .blk { animation: blk 2s ease-in-out infinite; }
 
         @media (max-width: 768px) {
