@@ -143,79 +143,67 @@ function Hero() {
 
 /* ─── TICKER ─────────────────────────────── */
 function Ticker() {
-  const ativos = [
-    { nome: "IFIX", preco: 3240, variacao: +0.45 },
-    { nome: "Dólar", preco: 5.12, variacao: -0.32 },
-    { nome: "Ibovespa", preco: 128450, variacao: +0.82 },
-    { nome: "MGLU3", preco: 2.14, variacao: -1.25 },
-    { nome: "ABEV3", preco: 13.88, variacao: +0.56 },
-    { nome: "PETR4", preco: 37.21, variacao: +1.42 },
-    { nome: "VALE3", preco: 68.90, variacao: -0.74 },
-    { nome: "ITUB4", preco: 32.55, variacao: +0.91 },
-    { nome: "GGBR4", preco: 21.33, variacao: -0.38 },
-    { nome: "BITCOIN", preco: 342000, variacao: +2.85 },
-  ];
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // evita duplicar o widget
+    if (containerRef.current.childElementCount > 0) return;
+
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-ticker.js";
+    script.async = true;
+
+    script.innerHTML = JSON.stringify({
+      symbols: [
+        { proName: "BMFBOVESPA:IFIX", title: "IFIX" },
+        { proName: "FX_IDC:USDBRL", title: "Dólar" },
+        { proName: "BMFBOVESPA:IBOV", title: "Ibovespa" },
+        { proName: "BMFBOVESPA:MGLU3", title: "MGLU3" },
+        { proName: "BMFBOVESPA:ABEV3", title: "ABEV3" },
+        { proName: "BMFBOVESPA:PETR4", title: "PETR4" },
+        { proName: "BMFBOVESPA:VALE3", title: "VALE3" },
+        { proName: "BMFBOVESPA:ITUB4", title: "ITUB4" },
+        { proName: "BMFBOVESPA:GGBR4", title: "GGBR4" },
+        { proName: "BINANCE:BTCUSDT", title: "Bitcoin" }
+      ],
+      colorTheme: "dark",
+      isTransparent: true,
+      showSymbolLogo: true,
+      locale: "br",
+      displayMode: "adaptive"
+    });
+
+    containerRef.current.appendChild(script);
+  }, []);
 
   return (
     <div
-  style={{
-    position: "fixed",
-    top: 80,
-    left: 0,
-    width: "100%",
-    zIndex: 40,
-    height: 42,
-    overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    background:
-      "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
-    backdropFilter: "blur(8px)",
-    boxShadow: "inset 0 -1px rgba(255,255,255,0.06)",
-  }}
+      style={{
+        position: "fixed",
+        top: 80,
+        left: 0,
+        width: "100%",
+        zIndex: 40,
+        height: 46,
+        display: "flex",
+        alignItems: "center",
+        background:
+          "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
+        backdropFilter: "blur(8px)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}
     >
       <div
-        className="run"
+        ref={containerRef}
         style={{
-          display: "flex",
-          gap: 40,
-          width: "fit-content",
-          paddingLeft: 20,
+          width: "100%",
+          height: "100%",
         }}
-      >
-        {[...ativos, ...ativos].map((a, i) => {
-          const isUp = a.variacao >= 0;
-
-          return (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                fontSize: 13,
-                whiteSpace: "nowrap",
-              }}
-            >
-              <strong style={{ color: "#fff" }}>{a.nome}</strong>
-
-              <span style={{ color: "rgba(255,255,255,0.6)" }}>
-                {a.preco.toLocaleString("pt-BR")}
-              </span>
-
-              <span
-                style={{
-                  color: isUp ? "#00ff7f" : "#f87171",
-                  fontWeight: 700,
-                }}
-              >
-                {isUp ? "+" : ""}
-                {a.variacao}%
-              </span>
-            </div>
-          );
-        })}
-      </div>
+      />
     </div>
   );
 }
