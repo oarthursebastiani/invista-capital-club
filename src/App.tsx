@@ -143,14 +143,50 @@ function Hero() {
 
 /* ─── TICKER ─────────────────────────────── */
 function Ticker() {
-  const items = ['B3','·','Tesouro Direto','·','FIIs','·','ETFs','·','Criptoativos','·','Renda Fixa','·','Dividendos','·','Ações','·'];
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbols: [
+        { proName: "FX_IDC:USDBRL", title: "Dólar" },
+        { proName: "BINANCE:BTCUSDT", title: "Bitcoin" },
+        { proName: "BMFBOVESPA:IFIX", title: "IFIX" },
+        { proName: "BMFBOVESPA:MGLU3", title: "MGLU3" },
+        { proName: "BMFBOVESPA:PETR4", title: "PETR4" },
+        { proName: "BMFBOVESPA:VALE3", title: "VALE3" },
+        { proName: "BMFBOVESPA:ITUB4", title: "ITUB4" },
+        { proName: "BMFBOVESPA:ABEV3", title: "ABEV3" },
+        { proName: "BMFBOVESPA:IBOV", title: "IBOVESPA" },
+        { proName: "BMFBOVESPA:GGBR4", title: "GGBR4" }
+      ],
+      showSymbolLogo: true,
+      isTransparent: true,
+      displayMode: "adaptive",
+      colorTheme: "dark",
+      locale: "br"
+    });
+
+    const container = document.getElementById("tradingview-ticker");
+    if (container) {
+      container.innerHTML = "";
+      container.appendChild(script);
+    }
+  }, []);
+
   return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '13px 0', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
-      <div className="run" style={{ display: 'flex', gap: 36, whiteSpace: 'nowrap' }}>
-        {[...items,...items,...items].map((it,i) => (
-          <span key={i} style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.15)', textTransform: 'uppercase', letterSpacing: '0.18em', flexShrink: 0 }}>{it}</span>
-        ))}
-      </div>
+    <div
+      style={{
+        position: "fixed",
+        top: 80, // logo abaixo da navbar
+        left: 0,
+        width: "100%",
+        zIndex: 40,
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
+        background: "#080c08"
+      }}
+    >
+      <div id="tradingview-ticker" />
     </div>
   );
 }
