@@ -158,19 +158,21 @@ function Ticker() {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        top: 80,
-        left: 0,
-        width: "100%",
-        zIndex: 40,
-        height: 46,
-        overflow: "hidden",
-        borderBottom: "1px solid rgba(255,255,255,0.05)",
-        background:
-          "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
-        backdropFilter: "blur(8px)",
-      }}
+  style={{
+    position: "fixed",
+    top: 80,
+    left: 0,
+    width: "100%",
+    zIndex: 40,
+    height: 42,
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    background:
+      "linear-gradient(180deg, rgba(8,12,8,0.98), rgba(8,12,8,0.92))",
+    backdropFilter: "blur(8px)",
+    boxShadow: "inset 0 -1px rgba(255,255,255,0.06)",
+  }}
     >
       <div
         className="run"
