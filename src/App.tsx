@@ -253,22 +253,104 @@ function Hero() {
           ))}
         </motion.div>
 
-        {/* mockup */}
-        <motion.div
-          className="mockup-hide"
-          initial={{ opacity: 0, y: 48 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          style={{
-            width: '100%',
-            maxWidth: 880,
-            margin: '0 auto',
-            borderRadius: 18,
-            border: '1px solid rgba(255,255,255,0.08)',
-            background: '#0d120d',
-            overflow: 'hidden',
-            boxShadow: '0 48px 96px rgba(0,0,0,0.65)'
-          }}
+       {/* Mockup */}
+<motion.div
+  initial={{ opacity: 0, y: 48 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.9, delay: 0.4 }}
+  style={{
+    width: '100%',
+    maxWidth: 880,
+    margin: '0 auto',
+    borderRadius: 18,
+    border: '1px solid rgba(255,255,255,0.08)',
+    background: '#0d120d',
+    overflow: 'hidden',
+    boxShadow: '0 48px 96px rgba(0,0,0,0.65)'
+  }}
+>
+  {/* Top bar */}
+  <div style={{
+    height: 38,
+    background: 'rgba(255,255,255,0.04)',
+    borderBottom: '1px solid rgba(255,255,255,0.05)',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 16px',
+    gap: 6
+  }}>
+    {['rgba(255,80,80,0.6)','rgba(255,200,0,0.6)','rgba(0,255,127,0.6)'].map((c,i) => (
+      <div key={i} style={{ width: 11, height: 11, borderRadius: '50%', background: c }} />
+    ))}
+  </div>
+
+  {/* Conteúdo */}
+  <div style={{
+    padding: 20,
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4,1fr)',
+    gap: 12
+  }}>
+    
+    {/* Cards */}
+    {[
+      { l: 'Rentabilidade', v: '+24.8%', c: '#00ff7f' },
+      { l: 'Dividend Yield', v: '8.4%', c: '#00ff7f' },
+      { l: 'Patrimônio', v: 'R$48.3k', c: '#fff' },
+      { l: 'Aporte', v: 'IPCA+', c: '#fff' }
+    ].map((k,i) => (
+      <div key={i} style={{
+        background: 'rgba(255,255,255,0.04)',
+        border: '1px solid rgba(255,255,255,0.06)',
+        borderRadius: 10,
+        padding: '12px 14px'
+      }}>
+        <span style={{
+          fontSize: 9,
+          color: 'rgba(255,255,255,0.3)',
+          display: 'block',
+          marginBottom: 6
+        }}>{k.l}</span>
+
+        <div style={{
+          fontSize: 22,
+          fontWeight: 800,
+          color: k.c
+        }}>{k.v}</div>
+      </div>
+    ))}
+
+    {/* Gráfico */}
+    <div style={{
+      gridColumn: 'span 4',
+      background: 'rgba(255,255,255,0.04)',
+      border: '1px solid rgba(255,255,255,0.06)',
+      borderRadius: 10,
+      padding: 16
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'flex-end',
+        gap: 4,
+        height: 80
+      }}>
+        {[30,40,50,60,55,70,80,90,85,95].map((h,i) => (
+          <div
+            key={i}
+            style={{
+              flex: 1,
+              height: `${h}%`,
+              background: 'linear-gradient(to top,rgba(0,255,127,0.15),rgba(0,255,127,0.6))',
+              borderTop: '2px solid #00ff7f',
+              borderRadius: '3px 3px 0 0'
+            }}
+          />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</motion.div>
         >
           {/* header mock */}
           <div
