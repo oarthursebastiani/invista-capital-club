@@ -144,8 +144,7 @@ function Hero() {
 /* ─── TICKER ─────────────────────────────── */
 function Ticker() {
   const items = ['B3','·','Tesouro Direto','·','FIIs','·','ETFs','·','Criptoativos','·','Renda Fixa','·','Dividendos','·','Ações','·'];
-
-  const loopItems = [...items, ...items]; // duplicação correta
+  const loopItems = [...items, ...items];
 
   return (
     <div
@@ -154,16 +153,16 @@ function Ticker() {
         borderBottom: '1px solid rgba(255,255,255,0.05)',
         padding: '13px 0',
         overflow: 'hidden',
-        background: 'rgba(255,255,255,0.01)',
+        background: 'rgba(255,255,255,0.03)',
       }}
     >
       <div
-        className="run"
         style={{
           display: 'flex',
           gap: 36,
           whiteSpace: 'nowrap',
-          minWidth: '200%', // ESSENCIAL pro loop infinito suave
+          width: 'max-content',
+          animation: 'mq 18s linear infinite',
         }}
       >
         {loopItems.map((it, i) => (
@@ -172,10 +171,9 @@ function Ticker() {
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: 'rgba(255,255,255,0.15)',
+              color: '#00ff7f',
               textTransform: 'uppercase',
               letterSpacing: '0.18em',
-              flexShrink: 0,
             }}
           >
             {it}
