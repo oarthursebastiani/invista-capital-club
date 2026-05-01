@@ -51,89 +51,260 @@ function Navbar() {
 /* ─── HERO ───────────────────────────────── */
 function Hero() {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '160px 24px 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-      <div style={{ position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%,-50%)', width: 800, height: 500, background: 'rgba(0,255,127,0.055)', borderRadius: '50%', filter: 'blur(130px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.02, backgroundImage: 'linear-gradient(rgba(0,255,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,127,1) 1px,transparent 1px)', backgroundSize: '64px 64px', pointerEvents: 'none' }} />
+    <section
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '180px 24px 60px', // 🔥 espaço maior por causa do ticker
+        position: 'relative',
+        overflow: 'hidden',
+        textAlign: 'center'
+      }}
+    >
+      {/* glow fundo */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '35%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: 800,
+          height: 500,
+          background: 'rgba(0,255,127,0.055)',
+          borderRadius: '50%',
+          filter: 'blur(130px)',
+          pointerEvents: 'none'
+        }}
+      />
+
+      {/* grid */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.02,
+          backgroundImage:
+            'linear-gradient(rgba(0,255,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,127,1) 1px,transparent 1px)',
+          backgroundSize: '64px 64px',
+          pointerEvents: 'none'
+        }}
+      />
 
       <div style={{ maxWidth: 820, position: 'relative', zIndex: 1, width: '100%' }}>
-        <motion.div {...fw(0)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1px solid rgba(0,255,127,0.3)', background: 'rgba(0,255,127,0.07)', padding: '7px 18px', borderRadius: 99, fontSize: 11, fontWeight: 700, color: '#00ff7f', marginBottom: 32, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span className="blk" style={{ width: 6, height: 6, borderRadius: '50%', background: '#00ff7f', flexShrink: 0 }} />
+
+        {/* badge */}
+        <motion.div
+          {...fw(0)}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            border: '1px solid rgba(0,255,127,0.3)',
+            background: 'rgba(0,255,127,0.07)',
+            padding: '7px 18px',
+            borderRadius: 99,
+            fontSize: 11,
+            fontWeight: 700,
+            color: '#00ff7f',
+            marginBottom: 28,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase'
+          }}
+        >
+          <span
+            className="blk"
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: '50%',
+              background: '#00ff7f',
+              flexShrink: 0
+            }}
+          />
           +1.200 investidores já estão no Club
         </motion.div>
 
-        <motion.h1 {...fw(0.07)} style={{ fontSize: 'clamp(32px,6vw,64px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: 22 }}>
+        {/* headline */}
+        <motion.h1
+          {...fw(0.07)}
+          style={{
+            fontSize: 'clamp(32px,6vw,64px)',
+            fontWeight: 800,
+            letterSpacing: '-0.04em',
+            lineHeight: 1.05,
+            marginBottom: 18
+          }}
+        >
           Pare de perder{' '}
-          <span style={{ color: '#00ff7f', fontStyle: 'italic' }}>dinheiro</span>
-          <br />investindo no escuro.
+          <span style={{ color: '#00ff7f', fontStyle: 'italic' }}>
+            dinheiro
+          </span>
+          <br />
+          investindo no escuro.
         </motion.h1>
 
-        <motion.p {...fw(0.13)} style={{ fontSize: 'clamp(15px,2.5vw,18px)', color: 'rgba(255,255,255,0.5)', maxWidth: 540, margin: '0 auto 36px', lineHeight: 1.75, fontWeight: 400 }}>
+        {/* subheadline */}
+        <motion.p
+          {...fw(0.13)}
+          style={{
+            fontSize: 'clamp(15px,2.5vw,18px)',
+            color: 'rgba(255,255,255,0.55)',
+            maxWidth: 520,
+            margin: '0 auto 32px',
+            lineHeight: 1.7
+          }}
+        >
           Descubra exatamente onde alocar seu dinheiro e construa patrimônio com segurança, método e resultado comprovado.
         </motion.p>
 
-        <motion.div {...fw(0.18)} style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
-          <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#00ff7f', color: '#000', fontWeight: 800, fontSize: 14, padding: '15px 28px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 32px rgba(0,255,127,0.3)', width: '100%', maxWidth: 340 }}>
-            QUERO ENTRAR PARA O CLUB <ArrowRight size={17} strokeWidth={2.5} />
+        {/* CTA */}
+        <motion.div
+          {...fw(0.18)}
+          style={{
+            display: 'flex',
+            gap: 12,
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginBottom: 24
+          }}
+        >
+          <a
+            href={CHECKOUT_URL}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              background: '#00ff7f',
+              color: '#000',
+              fontWeight: 800,
+              fontSize: 14,
+              padding: '16px 28px',
+              borderRadius: 12,
+              textDecoration: 'none',
+              letterSpacing: '0.04em',
+              boxShadow: '0 0 32px rgba(0,255,127,0.35)',
+              width: '100%',
+              maxWidth: 340
+            }}
+          >
+            QUERO ENTRAR AGORA
+            <ArrowRight size={17} strokeWidth={2.5} />
           </a>
-          <a href="#conteudo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontWeight: 500, fontSize: 14, padding: '15px 24px', borderRadius: 12, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)', width: '100%', maxWidth: 340 }}>
-            <Play size={15} /> Ver o que está incluso
+
+          <a
+            href="#conteudo"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              color: 'rgba(255,255,255,0.5)',
+              fontWeight: 500,
+              fontSize: 14,
+              padding: '16px 24px',
+              borderRadius: 12,
+              textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,0.12)',
+              width: '100%',
+              maxWidth: 340
+            }}
+          >
+            <Play size={15} /> Ver como funciona
           </a>
         </motion.div>
 
-        <motion.div {...fw(0.22)} style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 52 }}>
-          {([['Garantia de 7 dias', ShieldCheck], ['Acesso imediato', Zap], ['Cancele quando quiser', CheckCircle2]] as const).map(([text, Icon], i) => (
-            <span key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: 'rgba(255,255,255,0.28)', fontWeight: 500 }}>
-              <Icon size={14} color="rgba(0,255,127,0.6)" /> {text}
+        {/* prova social */}
+        <motion.div
+          {...fw(0.22)}
+          style={{
+            display: 'flex',
+            gap: 16,
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginBottom: 48
+          }}
+        >
+          {([
+            ['Garantia de 7 dias', ShieldCheck],
+            ['Acesso imediato', Zap],
+            ['Cancele quando quiser', CheckCircle2]
+          ] as const).map(([text, Icon], i) => (
+            <span
+              key={i}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                fontSize: 13,
+                color: 'rgba(255,255,255,0.3)'
+              }}
+            >
+              <Icon size={14} color="rgba(0,255,127,0.7)" />
+              {text}
             </span>
           ))}
         </motion.div>
 
-        {/* Mockup */}
-        <motion.div className="mockup-hide"
+        {/* mockup */}
+        <motion.div
+          className="mockup-hide"
           initial={{ opacity: 0, y: 48 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          style={{ width: '100%', maxWidth: 880, margin: '0 auto', borderRadius: 18, border: '1px solid rgba(255,255,255,0.08)', background: '#0d120d', overflow: 'hidden', boxShadow: '0 48px 96px rgba(0,0,0,0.65)' }}>
-          <div style={{ height: 38, background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', padding: '0 16px', gap: 6 }}>
-            {['rgba(255,80,80,0.6)','rgba(255,200,0,0.6)','rgba(0,255,127,0.6)'].map((c,i) => <div key={i} style={{ width: 11, height: 11, borderRadius: '50%', background: c }} />)}
-            <div style={{ flex: 1, margin: '0 14px', height: 22, background: 'rgba(255,255,255,0.05)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)', fontWeight: 500 }}>app.invistacapital.com.br/dashboard</span>
-            </div>
-          </div>
-          <div style={{ padding: 20, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
-            {[{l:'Rentabilidade',v:'+24.8%',c:'#00ff7f',s:'últimos 12 meses'},{l:'Dividend Yield',v:'8.4%',c:'#00ff7f',s:'carteira atual'},{l:'Patrimônio',v:'R$48.3k',c:'#fff',s:'+12% no mês'},{l:'Próx. aporte',v:'IPCA+',c:'#fff',s:'Tesouro Direto'}].map((k,i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: '12px 14px' }}>
-                <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: 6, fontWeight: 600 }}>{k.l}</span>
-                <div style={{ fontSize: 22, fontWeight: 800, color: k.c, lineHeight: 1, letterSpacing: '-0.02em' }}>{k.v}</div>
-                <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.22)', marginTop: 4, display: 'block' }}>{k.s}</span>
-              </div>
+          style={{
+            width: '100%',
+            maxWidth: 880,
+            margin: '0 auto',
+            borderRadius: 18,
+            border: '1px solid rgba(255,255,255,0.08)',
+            background: '#0d120d',
+            overflow: 'hidden',
+            boxShadow: '0 48px 96px rgba(0,0,0,0.65)'
+          }}
+        >
+          {/* header mock */}
+          <div
+            style={{
+              height: 38,
+              background: 'rgba(255,255,255,0.04)',
+              borderBottom: '1px solid rgba(255,255,255,0.05)',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '0 16px',
+              gap: 6
+            }}
+          >
+            {[
+              'rgba(255,80,80,0.6)',
+              'rgba(255,200,0,0.6)',
+              'rgba(0,255,127,0.6)'
+            ].map((c, i) => (
+              <div
+                key={i}
+                style={{
+                  width: 11,
+                  height: 11,
+                  borderRadius: '50%',
+                  background: c
+                }}
+              />
             ))}
-            <div style={{ gridColumn: 'span 3', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: 16 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 14 }}>
-                <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>Performance</span>
-                <span style={{ fontSize: 10, color: '#00ff7f', fontWeight: 700 }}>12 meses</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 68 }}>
-                {[28,35,42,38,55,48,68,62,75,70,88,100].map((h,i) => (
-                  <motion.div key={i} style={{ flex: 1, borderRadius: '3px 3px 0 0', background: 'linear-gradient(to top,rgba(0,255,127,0.12),rgba(0,255,127,0.45))', borderTop: '2px solid rgba(0,255,127,0.6)' }}
-                    initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ duration: 0.7, delay: 0.5 + i * 0.04 }} />
-                ))}
-              </div>
-              <div style={{ display: 'flex', marginTop: 6 }}>
-                {['J','F','M','A','M','J','J','A','S','O','N','D'].map((m,i) => (
-                  <span key={i} style={{ flex: 1, textAlign: 'center', fontSize: 8, color: 'rgba(255,255,255,0.2)', fontWeight: 500 }}>{m}</span>
-                ))}
-              </div>
-            </div>
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: '12px 14px' }}>
-              <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: 12, fontWeight: 600 }}>Top picks</span>
-              {[['PETR4','+18%'],['HGLG11','+12%'],['BTC','+31%']].map(([t,v],i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.01em' }}>{t}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f' }}>{v}</span>
-                </div>
-              ))}
-            </div>
+          </div>
+
+          {/* conteúdo mock */}
+          <div style={{ padding: 20 }}>
+            <div
+              style={{
+                height: 80,
+                background:
+                  'linear-gradient(to top, rgba(0,255,127,0.1), rgba(0,255,127,0.4))',
+                borderRadius: 10
+              }}
+            />
           </div>
         </motion.div>
       </div>
