@@ -51,7 +51,7 @@ function Navbar() {
 /* ─── HERO ───────────────────────────────── */
 function Hero() {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '150px 24px 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '160px 24px 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
       <div style={{ position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%,-50%)', width: 800, height: 500, background: 'rgba(0,255,127,0.055)', borderRadius: '50%', filter: 'blur(130px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', inset: 0, opacity: 0.02, backgroundImage: 'linear-gradient(rgba(0,255,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,127,1) 1px,transparent 1px)', backgroundSize: '64px 64px', pointerEvents: 'none' }} />
 
