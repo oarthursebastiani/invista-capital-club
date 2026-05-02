@@ -62,9 +62,9 @@ function Hero() {
         </motion.div>
 
         <motion.h1 {...fw(0.07)} style={{ fontSize: 'clamp(32px,6vw,64px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: 22 }}>
-          Pare de perder{' '}
-          <span style={{ color: '#00ff7f', fontStyle: 'italic' }}>dinheiro</span>
-          <br />investindo no escuro.
+          Construa uma carteira{' '}
+          <span style={{ color: '#00ff7f', fontStyle: 'italic' }}>que realmente</span>
+          <br />dá resultado.
         </motion.h1>
 
         <motion.p {...fw(0.13)} style={{ fontSize: 'clamp(15px,2.5vw,18px)', color: 'rgba(255,255,255,0.5)', maxWidth: 540, margin: '0 auto 36px', lineHeight: 1.75, fontWeight: 400 }}>
