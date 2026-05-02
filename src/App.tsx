@@ -222,7 +222,7 @@ function PainPoints() {
         <div>
           <motion.span {...fw(0)} style={{ fontSize: 11, fontWeight: 700, color: '#00ff7f', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 18 }}>Você se identifica?</motion.span>
           <motion.h2 {...fw(0.06)} style={{ fontSize: 'clamp(24px,3.5vw,38px)', fontWeight: 800, lineHeight: 1.12, marginBottom: 18, letterSpacing: '-0.03em' }}>
-            Se você está perdido perdido sem saber onde investir<br /><span style={{ color: 'rgba(255,255,255,0.22)' }}>e está com medo de errar, você não está sozinho.</span>
+            Se você está perdido perdido sem saber onde investir e está com medo de errar, você não está sozinho.<br /><span style={{ color: 'rgba(255,255,255,0.22)' }}></span>
           </motion.h2>
           <motion.p {...fw(0.1)} style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, marginBottom: 28, fontWeight: 400 }}>
             95% dos brasileiros perdem para a inflação por falta de método. A solução não é trabalhar mais — é investir certo.
