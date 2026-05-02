@@ -329,7 +329,7 @@ function ContentGrid() {
         </div>
         <motion.div {...fw(0.25)} style={{ display: 'flex', justifyContent: 'center' }}>
           <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 800, fontSize: 13, padding: '15px 32px', borderRadius: 14, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 28px rgba(0,255,127,0.22)', width: '100%', maxWidth: 500 }}>
-            QUERO ENTRAR PARA O INVISTA+ CAPITAL CLUB <ArrowRight size={17} strokeWidth={2.5} />
+            QUERO ENTRAR PARA O CLUB <ArrowRight size={17} strokeWidth={2.5} />
           </a>
         </motion.div>
       </div>
@@ -449,7 +449,7 @@ function Pricing() {
             ))}
           </div>
           <a href={CHECKOUT_URL} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, width: '100%', background: '#00ff7f', color: '#000', fontWeight: 800, fontSize: 14, padding: '16px', borderRadius: 14, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 28px rgba(0,255,127,0.25)', marginBottom: 16 }}>
-            QUERO ENTRAR AGORA <ArrowRight size={18} strokeWidth={2.5} />
+            QUERO ENTRAR PARA O CLUB <ArrowRight size={18} strokeWidth={2.5} />
           </a>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, fontSize: 12, color: 'rgba(255,255,255,0.25)', fontWeight: 500 }}>
             <ShieldCheck size={13} color="rgba(0,255,127,0.4)" /> Garantia de 7 dias · Cancele quando quiser
@@ -474,7 +474,7 @@ function FinalCTA() {
           Cada dia sem método é um passo mais longe da sua liberdade financeira.
         </motion.p>
         <motion.a {...fw(0.14)} href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#00ff7f', color: '#000', fontWeight: 800, fontSize: 14, padding: '17px 32px', borderRadius: 14, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 44px rgba(0,255,127,0.28)', width: '100%', maxWidth: 500 }}>
-          QUERO ENTRAR PARA O INVISTA+ CAPITAL CLUB <ArrowRight size={18} strokeWidth={2.5} />
+          QUERO ENTRAR PARA O CLUB <ArrowRight size={18} strokeWidth={2.5} />
         </motion.a>
         <motion.p {...fw(0.18)} style={{ marginTop: 18, fontSize: 12, color: 'rgba(255,255,255,0.2)', fontWeight: 500 }}>
           Garantia de 7 dias · Sem fidelidade · Cancele quando quiser
