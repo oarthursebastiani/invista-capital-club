@@ -58,7 +58,7 @@ function Hero() {
       <div style={{ maxWidth: 820, position: 'relative', zIndex: 1, width: '100%' }}>
         <motion.div {...fw(0)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1px solid rgba(0,255,127,0.3)', background: 'rgba(0,255,127,0.07)', padding: '7px 18px', borderRadius: 99, fontSize: 11, fontWeight: 700, color: '#00ff7f', marginBottom: 32, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           <span className="blk" style={{ width: 6, height: 6, borderRadius: '50%', background: '#00ff7f', flexShrink: 0 }} />
-          +1.200 investidores já estão no Club
+          +1.200 membros ativos construindo patrimônio com o Club
         </motion.div>
 
         <motion.h1 {...fw(0.07)} style={{ fontSize: 'clamp(32px,6vw,64px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: 22 }}>
