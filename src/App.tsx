@@ -41,7 +41,7 @@ function Navbar() {
           ))}
         </nav>
         <a href={CHECKOUT_URL} style={{ background: '#00ff7f', color: '#000', fontSize: 13, fontWeight: 800, padding: '11px 22px', borderRadius: 10, textDecoration: 'none', letterSpacing: '0.04em', whiteSpace: 'nowrap', boxShadow: '0 0 20px rgba(0,255,127,0.25)' }}>
-          QUERO COMEÇAR A INVESTIR CERTO
+          ENTRAR PARA O CLUB
         </a>
       </div>
     </header>
