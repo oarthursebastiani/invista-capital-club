@@ -361,7 +361,7 @@ function Stats() {
   const items = [
     { to: 1200, suffix: '+',     label: 'membros ativos\nna comunidade' },
     { to: 24,   suffix: '%+',    label: 'de rentabilidade\nmédia da carteira' },
-    { to: 4.8,   suffix:    ,     label: 'avaliação média\ndos membros' },
+    { to: 4.8,   suffix: ' ',     label: 'avaliação média\ndos membros' },
     { to: 7,    suffix: ' dias', label: 'de garantia total\nsem perguntas' },
   ];
   return (
