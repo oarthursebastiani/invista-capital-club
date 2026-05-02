@@ -73,7 +73,7 @@ function Hero() {
 
         <motion.div {...fw(0.18)} style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
           <a href={CHECKOUT_URL} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#00ff7f', color: '#000', fontWeight: 800, fontSize: 14, padding: '15px 28px', borderRadius: 12, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 0 32px rgba(0,255,127,0.3)', width: '100%', maxWidth: 340 }}>
-            QUERO ENTRAR PARA O CLUB <ArrowRight size={17} strokeWidth={2.5} />
+            QUERO COMEÇAR A INVESTIR CERTO <ArrowRight size={17} strokeWidth={2.5} />
           </a>
           <a href="#conteudo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontWeight: 500, fontSize: 14, padding: '15px 24px', borderRadius: 12, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)', width: '100%', maxWidth: 340 }}>
             <Play size={15} /> Ver o que está incluso
